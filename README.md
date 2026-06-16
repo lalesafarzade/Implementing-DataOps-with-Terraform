@@ -1,4 +1,3 @@
-# Implementing-DataOps-with-Terraform
 
 # AWS DataOps Infrastructure: Bastion Host & RDS Proxy with Terraform
 
