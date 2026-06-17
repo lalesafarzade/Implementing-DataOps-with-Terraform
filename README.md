@@ -2,6 +2,26 @@
 # AWS DataOps Infrastructure: Bastion Host & RDS Proxy with Terraform
 
 An automated Infrastructure as Code (IaC) configuration to deploy an isolated PostgreSQL database within a private subnet, securely accessible only via an EC2-based Bastion Host (Jump Server).
+```
+[ Your Laptop ] 
+       │
+       ▼  (Secure SSH / TLS Connection)
+┌────────────────────────────────────────────────────────┐
+│ AWS VPC (Virtual Private Cloud)                        │
+│                                                        │
+│   ┌──────────────────┐                                 │
+│   │ Public Subnet    │                                 │
+│   │  Bastion Host    │                                 │
+│   └──────────┬───────┘                                 │
+│              │ (Internal Traffic Only)                 │
+│              ▼                                         │
+│   ┌────────────────────────────────────────────────┐   │
+│   │ Private Subnet (Isolated)                      │   │
+│   │                                                │   │
+│   │ 🔄 RDS Proxy  ──►  🗄️ RDS PostgreSQL Databas   │   │
+│   └────────────────────────────────────────────────┘   │
+└────────────────────────────────────────────────────────┘
+```
 
 ##  Architecture Overview
 
