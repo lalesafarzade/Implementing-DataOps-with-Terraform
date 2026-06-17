@@ -20,8 +20,6 @@ terraform/
         ├── variables.tf
         ├── outputs.tf
         ├── network.tf
-        ├── iam_roles.tf
-        ├── policies.tf
         ├── ec2.tf
         └── rds.tf
 
