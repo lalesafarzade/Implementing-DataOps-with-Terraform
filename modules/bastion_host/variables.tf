@@ -1,29 +1,29 @@
 variable "project_name" {
   type        = string
-  description = "Name of the project used for resource tagging"
+  description = "Name tag applied to all infrastructure components"
 }
 
 variable "aws_region" {
   type        = string
-  description = "Target AWS region"
+  description = "AWS deployment region"
 }
 
 variable "vpc_id" {
   type        = string
-  description = "The ID of the existing VPC"
+  description = "The target pre-existing VPC identifier"
 }
 
 variable "public_subnet_id" {
   type        = string
-  description = "The ID of the public subnet for the bastion host"
+  description = "The target public subnet for provisioning the bastion host"
 }
 
 variable "private_subnet_ids" {
   type        = list(string)
-  description = "A list of at least two private subnet IDs for the RDS database"
+  description = "The target private subnets (Minimum 2 required for RDS Subnet Groups)"
 }
 
 variable "db_username" {
   type        = string
-  description = "The master username for the database"
+  description = "The administrative database user login ID"
 }

@@ -1,1 +1,22 @@
-terraform.tfvars
+
+
+# Local variable overrides (Secrets)
+*.tfvars
+*.tfvars.json
+
+# Generated Private SSH Keys
+*.pem
+
+# Terraform State files (Contains plain-text passwords)
+*.tfstate
+*.tfstate.*
+
+# Crash logs
+crash.log
+crash.*
+
+# Terraform execution binaries and cache
+.terraform/
+
+# Optional: Ignore the dependency lock file
+.terraform.lock.hcl

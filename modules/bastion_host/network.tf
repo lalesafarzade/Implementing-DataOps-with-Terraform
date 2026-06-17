@@ -2,10 +2,9 @@ data "aws_vpc" "existing" {
   id = var.vpc_id
 }
 
-# Bastion Host Security Group
 resource "aws_security_group" "bastion_sg" {
   name        = "${var.project_name}-bastion-sg"
-  description = "Allow inbound SSH traffic from public internet"
+  description = "Allow incoming SSH connections over the public internet"
   vpc_id      = data.aws_vpc.existing.id
 
   ingress {
@@ -26,14 +25,13 @@ resource "aws_security_group" "bastion_sg" {
   tags = { Name = "${var.project_name}-bastion-sg" }
 }
 
-# RDS Security Group (Chained to only allow traffic from Bastion)
 resource "aws_security_group" "rds_sg" {
   name        = "${var.project_name}-rds-sg"
-  description = "Allow inbound traffic ONLY from Bastion Host"
+  description = "Allow traffic exclusively from Bastion Host security identity"
   vpc_id      = data.aws_vpc.existing.id
 
   ingress {
-    description     = "PostgreSQL from Bastion"
+    description     = "PostgreSQL inbound from Bastion SG"
     from_port       = 5432
     to_port         = 5432
     protocol        = "tcp"

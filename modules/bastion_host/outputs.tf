@@ -1,11 +1,11 @@
 output "bastion_public_dns" {
   value       = aws_instance.bastion.public_dns
-  description = "Public DNS of the Bastion Host"
+  description = "Public network footprint of the Bastion server"
 }
 
 output "rds_endpoint" {
   value       = aws_db_instance.postgres.endpoint
-  description = "The connection endpoint for the RDS instance"
+  description = "Private routing destination of the database engine instance"
 }
 
 output "db_password" {

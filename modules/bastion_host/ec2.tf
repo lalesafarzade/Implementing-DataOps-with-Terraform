@@ -28,7 +28,7 @@ resource "aws_instance" "bastion" {
   instance_type        = "t3.micro"
   subnet_id            = var.public_subnet_id
   key_name             = aws_key_pair.bastion_key.key_name
-  iam_instance_profile = aws_iam_instance_profile.bastion_profile.name
+  
 
   vpc_security_group_ids = [aws_security_group.bastion_sg.id]
 
